@@ -1,16 +1,11 @@
-version: "3"
+version: "3.8"
+
 services:
   code-server:
     image: ramadhanifajar07/serverganteng:latest
     container_name: code-server
-    environment:
-      - PUID=0
-      - PGID=0
-      - TZ=Asia/Jakarta
-      - PASSWORD=
-      - SUDO_PASSWORD=
+    user: root
     volumes:
-      - ./config:/config
+      - ./data:/home/coder/project
     ports:
-      - 8443:8443
-    restart: unless-stopped
+      - "8443:8080"
